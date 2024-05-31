@@ -64,6 +64,13 @@ function App() {
 
       {/* <img src={Img1} alt="" /> */}
 
+      <h1>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+        excepturi eum sint saepe quis, omnis veniam alias est iure, ducimus
+        repellat tempore. Dolore quos earum, delectus libero omnis repellendus
+        nostrum?
+      </h1>
+
       {prods
         ?.filter((prod) => prod?.category === "headphones")
         .map((prod) => {
