@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 // import { Link } from "react-router-dom";
 // import data from "./data/data.json";
@@ -54,6 +54,10 @@ function App() {
     console.log(data);
   };
 
+  useEffect(() => {
+    getData();
+  });
+
   return (
     <>
       <h2 className="heading">Hello</h2>
@@ -74,7 +78,7 @@ function App() {
 
           return (
             <div key={prod.id}>
-              <p>{prod.new}</p>
+              <p>{prod.name}</p>
               <img
                 src={`http://localhost:5173/${prod.categoryImage.desktop}`}
                 alt=""
