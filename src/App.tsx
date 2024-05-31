@@ -54,10 +54,6 @@ function App() {
     console.log(data);
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
-
   return (
     <>
       <h2 className="heading">Hello</h2>
