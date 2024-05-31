@@ -47,20 +47,35 @@ function App() {
   const [prods, setProds] = useState<null | Product[]>(null);
 
   const getData = async () => {
-    const res = await fetch("http://localhost:5173/data.json");
+    const res = await fetch("http://localhost:3000/products");
     const data = await res.json();
     setProds(data);
 
     console.log(data);
   };
 
+  const postData = async () => {
+    const res = await fetch("http://localhost:3000/products", {
+      method: "POST",
+      body: JSON.stringify({
+        id: "7",
+        name: "Headphone 123",
+      }),
+    });
+
+    const data = await res.json();
+
+    console.log(data);
+  };
+
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   return (
     <>
       <h2 className="heading">Hello</h2>
+      <button onClick={() => postData()}>Post data</button>
 
       {/* <img src={Img1} alt="" /> */}
 
@@ -74,8 +89,6 @@ function App() {
       {prods
         ?.filter((prod) => prod?.category === "headphones")
         .map((prod) => {
-          console.log(prod.categoryImage.desktop);
-
           return (
             <div key={prod.id}>
               <p>{prod.name}</p>
