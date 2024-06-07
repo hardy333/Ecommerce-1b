@@ -1,0 +1,50 @@
+.input-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 9px;
+
+  position: relative;
+}
+
+.input {
+  border-radius: 8px;
+
+  border: 1px solid #cfcfcf;
+  padding: 18px 24px;
+  font-size: 14px;
+  font-weight: bold;
+  outline: none;
+}
+
+.lable {
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+}
+
+.input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.input:focus {
+  border: 1px solid var(--color-primary);
+  outline: none;
+}
+
+.label-error {
+  color: var(--color-danger);
+}
+
+.input-error {
+  border: 2px solid var(--color-danger);
+}
+
+.input-error-p {
+  position: absolute;
+
+  top: 10px;
+  right: 0px;
+  font-size: 13px;
+  color: var(--color-danger);
+}

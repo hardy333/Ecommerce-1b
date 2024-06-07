@@ -1,0 +1,50 @@
+.speaker-section {
+  margin-bottom: 100px;
+}
+
+.speaker-section-container {
+  background-color: #d87d4a;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 60px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.speaker-section-content {
+  max-width: 350px;
+  min-height: 560px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+
+  z-index: 3;
+}
+
+.speaker-section-content h1 {
+  font-size: 40px;
+}
+
+.speaker-section img {
+  position: absolute;
+}
+
+.speaker-img {
+  bottom: -15px;
+  left: 150px;
+  max-width: 410px;
+  z-index: 2;
+}
+
+.circle-img {
+  left: -120px;
+  bottom: -300px;
+
+  z-index: 1;
+}
