@@ -7,6 +7,7 @@ type Props = {
   isLink?: boolean;
   to?: string;
   type?: "primary" | "secondary" | "link" | "dark";
+  onClick: () => void;
 };
 
 const Button = ({
@@ -14,6 +15,7 @@ const Button = ({
   isLink = false,
   to = "./",
   type = "primary",
+  onClick,
 }: Props) => {
   if (isLink) {
     return (
@@ -25,7 +27,7 @@ const Button = ({
   }
 
   return (
-    <button className={`btn btn-${type}`}>
+    <button onClick={onClick} className={`btn btn-${type}`}>
       {children}
       {type === "link" ? <ArrowSvg /> : null}
     </button>

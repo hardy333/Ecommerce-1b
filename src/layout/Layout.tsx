@@ -8,6 +8,7 @@ const Layout = () => {
     <>
       <Navbar />
       <Outlet />
+      {/* {children} */}
       {/* <ScrollRestoration /> */}
       <Footer />
     </>

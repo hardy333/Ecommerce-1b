@@ -1,9 +1,11 @@
 // import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import ProductsSection from "../components/poducts-section/ProductsSection";
+import "./products.css";
 
 export interface ProductType {
-  id: number;
+  id: string;
   slug: string;
   name: string;
   image: CategoryImage;
@@ -45,6 +47,7 @@ const Products = () => {
   const { productName } = useParams();
   // const [prods, setProds] = useState<null | ProductType[]>(null);
   // const [isLoading, setIsLoading] = useState(true);
+  console.log(productName);
 
   const getData = async () => {
     const res = await fetch("http://localhost:3000/products");
@@ -62,19 +65,30 @@ const Products = () => {
   // }
   return (
     <>
-      {data
-        ?.filter((prod: ProductType) => prod?.category === productName)
-        .map((prod: ProductType) => {
-          return (
-            <div key={prod.id}>
-              <p>{prod.name}</p>
-              <img
-                src={`http://localhost:5173/${prod.categoryImage.desktop}`}
-                alt=""
-              />
-            </div>
-          );
-        })}
+      <div>
+        <h1>{productName}</h1>
+      </div>
+
+      <div className="container">
+        {data
+          ?.filter((prod: ProductType) => prod?.category === productName)
+          .map((prod: ProductType) => {
+            return (
+              <div key={prod.id} className="product-container">
+                <img
+                  src={`http://localhost:5173/${prod.categoryImage.desktop}`}
+                  alt=""
+                />
+                <p>{prod.name}</p>
+                <Link to={`/products/${productName}/${prod.id}`}>
+                  See More info
+                </Link>
+              </div>
+            );
+          })}
+      </div>
+
+      <ProductsSection />
     </>
   );
 };

@@ -1,12 +1,14 @@
-import "./App.css";
-import Layout from "./layout/Layout";
+import CartContextProvider from "./context/CartContext";
+import "./css/App.css";
+import "./css/modal.css";
 import RoutesComponent from "./routes/Routes";
 
 function App() {
   return (
     <>
-      {/* <Layout /> */}
-      <RoutesComponent />
+      <CartContextProvider>
+        <RoutesComponent />
+      </CartContextProvider>
     </>
   );
 }

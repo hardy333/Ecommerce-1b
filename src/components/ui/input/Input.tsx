@@ -6,6 +6,8 @@ type InputProps = {
   id?: string;
   type?: string;
   isError?: boolean;
+  name?: string;
+  checked?: boolean;
 };
 
 const Input = ({
@@ -14,12 +16,13 @@ const Input = ({
   placeholder = "",
   id = "",
   isError = false,
+  name = "",
 }: InputProps) => {
   if (type === "radio") {
     return (
       <>
-        <div>
-          <input type="radio" id={id} />
+        <div className="radio-input-wrapper">
+          <input type="radio" name={name} id={id} />
           <label htmlFor={id}>{label}</label>
         </div>
       </>
@@ -31,7 +34,7 @@ const Input = ({
       <div className="input-wrapper">
         {label && (
           <label
-            className={`label ${isError ? "label-error" : ""}`}
+            className={`lable ${isError ? "label-error" : ""}`}
             htmlFor={id}
           >
             {label}
@@ -39,6 +42,7 @@ const Input = ({
         )}
         {isError ? <p className="input-error-p">Worng Format</p> : null}
         <input
+          name={name}
           className={`input ${isError ? "input-error" : ""}`}
           id={id}
           type={type}

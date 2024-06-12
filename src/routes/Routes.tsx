@@ -12,10 +12,11 @@ const RoutesComponent = () => {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/products/:productName" element={<Products />} />
-        <Route path="/products/:productName/:productId" element={<Product />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<Notfound />} />
+
+        <Route path="/products/:productName" element={<Products />} />
+        <Route path="/products/:productName/:productId" element={<Product />} />
       </Route>
     </Routes>
   );

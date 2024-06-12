@@ -5,6 +5,7 @@
   gap: 9px;
 
   position: relative;
+  padding-top: 20px;
 }
 
 .input {
@@ -21,6 +22,10 @@
   font-size: 12px;
   font-weight: bold;
   color: black;
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
 }
 
 .input::placeholder {
@@ -43,8 +48,31 @@
 .input-error-p {
   position: absolute;
 
-  top: 10px;
+  top: 0px;
   right: 0px;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--color-danger);
+}
+
+/* Readio Input */
+.radio-input-wrapper {
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+
+  width: 240px;
+  max-width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 18px 24px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.radio-input-wrapper input {
+  accent-color: var(--color-primary);
+  width: 20px;
+  height: 20px;
 }

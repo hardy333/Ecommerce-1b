@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ProdType } from "./ProductsSection";
 import Button from "../ui/button/Button";
 
@@ -12,10 +11,10 @@ const ProductCard = ({ prod }: Props) => {
       <img src={prod.img} alt="" />
       <h3>{prod.name}</h3>
       {/* <Link preventScrollReset={false}>
-        Shop
-      </Link> */}
+                        Shop
+                        </Link> */}
 
-      <Button to={prod.link} type="link">
+      <Button to={prod.link} type="link" isLink={true}>
         Shop
       </Button>
     </article>
