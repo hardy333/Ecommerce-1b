@@ -1,8 +1,9 @@
 // import { useEffect, useState } from "react";
-import { useQuery } from "react-query";
 import { Link, useParams } from "react-router-dom";
 import ProductsSection from "../components/poducts-section/ProductsSection";
 import "./products.css";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 export interface ProductType {
   id: string;
@@ -43,31 +44,56 @@ export interface Other {
   image: CategoryImage;
 }
 
+const postsUrl = "https://jsonplaceholder.typicode.com/posts";
+const productsUrl = "http://localhost:3000/products";
+const getData = async (url: string) => {
+  const res = await fetch(url);
+  const data = await res.json();
+
+  return data;
+};
+
 const Products = () => {
   const { productName } = useParams();
   // const [prods, setProds] = useState<null | ProductType[]>(null);
   // const [isLoading, setIsLoading] = useState(true);
-  console.log(productName);
 
-  const getData = async () => {
-    const res = await fetch("http://localhost:3000/products");
-    const data = await res.json();
-    return data;
-  };
+  const {
+    data,
+    isError,
+    error,
+    isLoading,
+    refetch: refetchProducts,
+  } = useQuery<ProductType[]>({
+    queryKey: ["products"],
+    queryFn: () => getData(productsUrl),
+    // enabled: false,
+  });
 
-  const { data } = useQuery<ProductType[]>({
-    queryKey: ["products", productName],
-    queryFn: getData,
+  const {
+    data: posts,
+    isError: postsIsError,
+    error: postsError,
+    isLoading: postsIsLoading,
+  } = useQuery({
+    queryKey: ["posts"],
+    queryFn: () => getData(postsUrl),
   });
 
   // if (query.isLoading) {
   //   return <h1>Loading ...</h1>;
   // }
+  // useEffect(() => {
+  //   refetchProducts();
+  // }, []);
+
   return (
     <>
       <div>
         <h1>{productName}</h1>
       </div>
+
+      <button onClick={() => refetchProducts()}>Get data</button>
 
       <div className="container">
         {data

@@ -9,6 +9,7 @@ export type cartItemType = {
 export type cartContextType = {
   updateCart: (num: number, prod: ProductType) => void;
   cart: cartItemType[];
+  clearCart: () => void;
 };
 
 export const CartConntext = createContext<null | cartContextType>(null);
@@ -19,6 +20,9 @@ const CartContextProvider = ({ children }: { children: ReactNode }) => {
   // 0
   //  1
   // 1+
+  const clearCart = () => {
+    setCart([]);
+  };
 
   const updateCart = (num: number, prod: ProductType) => {
     console.log(num, prod);
@@ -48,43 +52,10 @@ const CartContextProvider = ({ children }: { children: ReactNode }) => {
         setCart([...cart, { amount: num, product: prod }]);
       }
     }
-
-    // num is greater than 1
-    // if (num > 1) {
-    //   const newCart = cart.map((currItem) =>
-    //     currItem.product.id !== prod.id
-    //       ? currItem
-    //       : { ...currItem, amount: num }
-    //   );
-    //   setCart(newCart);
-    // }
-
-    // Method 2
-    //  2) როცა "ADD TO CART" ზე დაჭერის დროს გვინდა რომ cart დააბდეითდეს
-    // if (num === 0) {
-    //   const newCart = cart.filter(
-    //     (currItem) => currItem.product.id !== prod.id
-    //   );
-    //   setCart(newCart);
-    //   return;
-    // }
-
-    // const item = cart.find((currItem) => currItem.product.id === prod.id);
-
-    // if (item) {
-    //   const newCart = cart.map((currItem) =>
-    //     currItem.product.id !== prod.id
-    //       ? currItem
-    //       : { ...currItem, amount: num }
-    //   );
-    //   setCart(newCart);
-    // } else {
-    //   setCart([...cart, { amount: num, product: prod }]);
-    // }
   };
 
   return (
-    <CartConntext.Provider value={{ cart, updateCart }}>
+    <CartConntext.Provider value={{ cart, updateCart, clearCart }}>
       {children}
     </CartConntext.Provider>
   );

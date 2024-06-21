@@ -1,22 +1,32 @@
-import { ReactNode } from "react";
+import { HtmlHTMLAttributes, ReactNode } from "react";
 import "./button.css";
 import { Link } from "react-router-dom";
+
+// const func1 = (num1:number, num2: number, ...numbers: number[]) => {
+//   console.log(numbers);
+// };
+
+// const arr = [1, 2, 3, 3, 4];
+
+// func1(...arr);
 
 type Props = {
   children: ReactNode;
   isLink?: boolean;
   to?: string;
   type?: "primary" | "secondary" | "link" | "dark";
-  onClick: () => void;
-};
+  onClick?: () => void;
+} & HtmlHTMLAttributes<HTMLButtonElement>;
 
 const Button = ({
   children,
   isLink = false,
   to = "./",
   type = "primary",
-  onClick,
+  ...props
 }: Props) => {
+  console.log(props);
+
   if (isLink) {
     return (
       <Link className={`btn btn-${type}`} to={to}>
@@ -27,7 +37,7 @@ const Button = ({
   }
 
   return (
-    <button onClick={onClick} className={`btn btn-${type}`}>
+    <button {...props} className={`btn btn-${type}`}>
       {children}
       {type === "link" ? <ArrowSvg /> : null}
     </button>
@@ -39,9 +49,9 @@ const ArrowSvg = () => (
     <path
       d="M1.322 1l5 5-5 5"
       stroke="#D87D4A"
-      stroke-width="2"
+      strokeWidth="2"
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     />
   </svg>
 );

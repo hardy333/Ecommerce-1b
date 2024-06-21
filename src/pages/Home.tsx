@@ -1,39 +1,20 @@
-import { ChangeEvent, useEffect, useState } from "react";
 import Hero from "../components/hero/Hero";
 import ProductsSection from "../components/poducts-section/ProductsSection";
 import SpeakerSection from "../components/speaker-section/SpeakerSection";
 import Input from "../components/ui/input/Input";
-import NumberInput from "../components/ui/number-input/NumberInput";
+
+const gap = 96;
 
 const Home = () => {
-  const [num, setNum] = useState(2);
-  const [num2, setNum2] = useState(2);
-  const [file, setFile] = useState<File | null>(null);
-
-  const handleChangeFile = (e: ChangeEvent<HTMLInputElement>) => {
-    const files = e.currentTarget.files;
-    console.log(files);
-    if (files) setFile(files[0]);
-  };
-
-  useEffect(() => {
-    window.addEventListener("click", () => {
-      // console.log(file);
-    });
-  }, [file]);
-
   return (
     <>
-      <input
-        type={"file"}
-        // multiple={false}
-        accept="application/json"
-        onChange={handleChangeFile}
-      />
-
-      <input type="file" />
       <Hero />
-      <ProductsSection />
+      <div style={{ margin: `${gap}px 0` }}>
+        <ProductsSection />
+      </div>
+      <div style={{ margin: `${gap}px 0` }}>
+        <ProductsSection bgColor="red" />
+      </div>
       <SpeakerSection />
       <div className="container" style={{ margin: 20 }}>
         <Input
@@ -51,8 +32,8 @@ const Home = () => {
           isError={true}
           label="cash"
           id="name"
-          placeholder="Enter Name"
-          name="abc"
+          placeholder="dkjdld"
+          name="lkjdlk"
         />
         <br />
 
@@ -71,8 +52,6 @@ const Home = () => {
 
         <br />
         <br />
-        <NumberInput num={num} setNum={setNum} />
-        <NumberInput num={num2} setNum={setNum2} />
       </div>
     </>
   );

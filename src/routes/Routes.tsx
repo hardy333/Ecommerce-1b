@@ -1,10 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import Products from "../pages/Products";
-import Product from "../pages/Product";
+// import Product from "../pages/Product";
 import Checkout from "../pages/Checkout";
 import Notfound from "../pages/404";
 import Layout from "../layout/Layout";
+import ProductWithRedux from "../pages/ProductWithRedux";
+// import Product from "../pages/Product";
 // import Layout from "../layout/Layout";
 
 const RoutesComponent = () => {
@@ -13,10 +15,14 @@ const RoutesComponent = () => {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="*" element={<Notfound />} />
-
         <Route path="/products/:productName" element={<Products />} />
-        <Route path="/products/:productName/:productId" element={<Product />} />
+        <Route
+          path="/products/:productName/:productId"
+          element={<ProductWithRedux />}
+        />
+
+        <Route path="*" element={<Notfound />} />
+        {/* <Route path="/products/:productName/:productId" element={<Product />} /> */}
       </Route>
     </Routes>
   );

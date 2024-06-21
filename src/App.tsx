@@ -1,14 +1,14 @@
-import CartContextProvider from "./context/CartContext";
 import "./css/App.css";
 import "./css/modal.css";
+import Providers from "./providers/Providers";
 import RoutesComponent from "./routes/Routes";
 
 function App() {
   return (
     <>
-      <CartContextProvider>
+      <Providers>
         <RoutesComponent />
-      </CartContextProvider>
+      </Providers>
     </>
   );
 }

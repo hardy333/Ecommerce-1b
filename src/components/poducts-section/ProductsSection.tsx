@@ -26,12 +26,12 @@ const products: ProdType[] = [
   },
 ];
 
-const ProductsSection = () => {
+const ProductsSection = ({ bgColor }: { bgColor?: string }) => {
   return (
-    <section className="products-section">
+    <section style={{ background: bgColor }} className="products-section">
       <div className="container products-section-container">
-        {products.map((prod) => {
-          return <ProductCard key={prod.link} prod={prod} />;
+        {products.map((prod, index) => {
+          return <ProductCard index={index} key={prod.link} prod={prod} />;
         })}
       </div>
     </section>

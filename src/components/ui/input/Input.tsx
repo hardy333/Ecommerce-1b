@@ -1,3 +1,4 @@
+import { HtmlHTMLAttributes } from "react";
 import "./input.css";
 
 type InputProps = {
@@ -8,21 +9,20 @@ type InputProps = {
   isError?: boolean;
   name?: string;
   checked?: boolean;
-};
+} & HtmlHTMLAttributes<HTMLInputElement>;
 
 const Input = ({
   label = null,
-  type = "text",
-  placeholder = "",
   id = "",
   isError = false,
-  name = "",
+
+  ...props
 }: InputProps) => {
-  if (type === "radio") {
+  if (props.type === "radio") {
     return (
       <>
         <div className="radio-input-wrapper">
-          <input type="radio" name={name} id={id} />
+          <input type="radio" {...props} id={id} />
           <label htmlFor={id}>{label}</label>
         </div>
       </>
@@ -42,11 +42,13 @@ const Input = ({
         )}
         {isError ? <p className="input-error-p">Worng Format</p> : null}
         <input
-          name={name}
           className={`input ${isError ? "input-error" : ""}`}
           id={id}
-          type={type}
-          placeholder={placeholder}
+          {...props}
+
+          // name={name}
+          // type={type}
+          // placeholder={placeholder}
         />
       </div>
     </>
