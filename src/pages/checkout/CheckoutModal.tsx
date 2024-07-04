@@ -27,7 +27,7 @@ const CheckoutModal = ({ modalIsOpen, setIsOpen }: Props) => {
       <img src="" alt="" />
 
       <h2>Lorem ipsum dolor sit.</h2>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing Lorem, ipsum.</p>
 
       <section className="modal-main-container">
         {/* Left */}
