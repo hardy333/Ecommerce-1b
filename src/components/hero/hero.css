@@ -1,0 +1,36 @@
+.hero {
+  background-color: #191919;
+  color: white;
+  padding: 20px 10px;
+  height: calc(100vh - 90px);
+}
+
+.hero-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-image: url(../../assets/home/desktop/image-hero.jpg);
+  background-size: 130%;
+  background-position: -220px -100px;
+}
+
+.hero-content {
+  max-width: 380px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
+.hero-content h1 {
+  font-size: 56px;
+  line-height: 1;
+}
+
+.hero-content p {
+  /* line-height: 1.5; */
+}
+
+@media (max-width: 500px) {
+}

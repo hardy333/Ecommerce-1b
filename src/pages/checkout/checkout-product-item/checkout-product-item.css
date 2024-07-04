@@ -1,0 +1,26 @@
+.checkout-product-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.checkout-product-item img {
+  width: 64px;
+  border-radius: 8px;
+}
+
+.checkout-product-item .info-box {
+}
+
+.checkout-product-item .price {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.checkout-product-item .amount-div {
+  margin-left: auto;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
