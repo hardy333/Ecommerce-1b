@@ -1,4 +1,4 @@
-import { HtmlHTMLAttributes, ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 import "./button.css";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ type Props = {
   to?: string;
   variant?: "primary" | "secondary" | "link" | "dark";
   onClick?: () => void;
-} & HtmlHTMLAttributes<HTMLButtonElement>;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = ({
   children,

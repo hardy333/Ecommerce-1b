@@ -6,6 +6,7 @@ import Checkout from "../pages/checkout/Checkout";
 import Notfound from "../pages/404";
 import Layout from "../layout/Layout";
 import ProductWithRedux from "../pages/ProductWithRedux";
+import Practise from "../pages/practise/Practise";
 // import Product from "../pages/Product";
 // import Layout from "../layout/Layout";
 
@@ -22,6 +23,7 @@ const RoutesComponent = () => {
         />
 
         <Route path="*" element={<Notfound />} />
+        <Route path="/practise" element={<Practise />} />
         {/* <Route path="/products/:productName/:productId" element={<Product />} /> */}
       </Route>
     </Routes>

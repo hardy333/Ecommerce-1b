@@ -43,8 +43,6 @@ const Checkout = () => {
     setIsOpen(true);
   };
 
-  console.log(register("name"));
-
   return (
     <section className="checkout">
       <div className="container checkout-container">
@@ -221,6 +219,7 @@ const Checkout = () => {
               })}
             </section>
 
+            <a href=""></a>
             <Button variant="primary">Continue</Button>
           </aside>
         </form>
